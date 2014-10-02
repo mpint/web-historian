@@ -5,7 +5,12 @@ var fs = require('fs');
 
 // require more modules/folders here!
 
-exports.handleRequest = function (req, res) {
+exports.handleRequest = function (req, res, url) {
+  var hasUrl = archive.processURL(req, res, url);
+  if(hasUrl), get
+    else, post?
+
+
 
   if (req.method === 'GET') {
     console.log(archive.paths);

@@ -27,9 +27,19 @@ exports.initialize = function(pathsObj){
 // modularize your code. Keep it clean!
 
 exports.readListOfUrls = function(){
+
+ fs.readFile(exports.paths[list], function (err, list) {
+  if (err) { throw new Error();}
+
+
+ });
 };
 
-exports.isUrlInList = function(){
+exports.isUrlInList = function(some site){
+  //readListOfUrls().contains (some site)?
+  //compare somesite to sites in sites.txt
+  //return bool
+
 };
 
 exports.addUrlToList = function(){
@@ -39,4 +49,12 @@ exports.isURLArchived = function(){
 };
 
 exports.downloadUrls = function(){
+};
+exports.processURL = function(url){
+  // determine whether url is in list
+  // with readListofURLs
+  // use isURLinList
+  // if not addURLtoList and send work request
+  // to webworker with downloadURLs
+  if (readListOfUrls()) {}
 };
