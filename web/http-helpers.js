@@ -15,6 +15,13 @@ exports.serveAssets = function(res, asset, callback) {
   // (Static files are things like html (yours or archived from others...), css, or anything that doesn't change often.)
 };
 
+exports.serveResponse = function(res, data, statusCode) {
+  statusCode = statusCode || 200;
+  console.log('the status code is', statusCode, 'and data is', data);
+  res.writeHead(statusCode, headers);
+  res.write(data);
+  res.end(data);
+}
 
 
 // As you progress, keep thinking about what helper functions you can put here!
