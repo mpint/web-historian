@@ -26,23 +26,34 @@ exports.initialize = function(pathsObj){
 // The following function names are provided to you to suggest how you might
 // modularize your code. Keep it clean!
 
-exports.readListOfUrls = function(){
+exports.readListOfUrls = function(callback){
 
- fs.readFile(exports.paths[list], function (err, list) {
-  if (err) { throw new Error();}
+  fs.readFile(exports.paths['list'], 'utf8', function (err, list) {
+    if (err) { throw new Error();}
+    var data = list.split('\n');
+    console.log(data);
 
-
- });
+    callback(data);
+   });
 };
 
-exports.isUrlInList = function(some site){
-  //readListOfUrls().contains (some site)?
-  //compare somesite to sites in sites.txt
-  //return bool
+exports.isUrlInList = function(site){
+  return exports.readListOfUrls(function(siteList){
+    return siteList.indexOf(site) >= 0 ? true : false;
+  });
+
 
 };
 
-exports.addUrlToList = function(){
+exports.addUrlToList = function(site){
+  if(!exports.isUrlInList(site)){
+    fs.writeFile(exports.paths['list'], site, function(err){
+      if(err) throw err;
+      console.log(site + ' got saved');
+    });
+  } else {
+    console.log(site + " is already in the list");
+  }
 };
 
 exports.isURLArchived = function(){
@@ -56,5 +67,5 @@ exports.processURL = function(url){
   // use isURLinList
   // if not addURLtoList and send work request
   // to webworker with downloadURLs
-  if (readListOfUrls()) {}
+  // if (readListOfUrls()) {}
 };

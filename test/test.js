@@ -32,7 +32,6 @@ describe("Node Server Request Listener Function", function() {
       function() { return res._ended; },
       function(){
         expect(res._responseCode).to.equal(200);
-        console.log('DATA',res._data.toString());
         expect(res._data.toString().match(/<input/)).to.be.ok; // the resulting html should have an input tag
         done();
     });
@@ -93,6 +92,7 @@ describe("html fetcher helpers", function(){
     var resultArray;
 
     fs.writeFileSync(archive.paths.list, urlArray.join("\n"));
+
     archive.readListOfUrls(function(urls){
       resultArray = urls;
     });

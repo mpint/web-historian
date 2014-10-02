@@ -6,17 +6,18 @@ var fs = require('fs');
 // require more modules/folders here!
 
 exports.handleRequest = function (req, res, url) {
-  var hasUrl = archive.processURL(req, res, url);
-  if(hasUrl), get
-    else, post?
+  console.log("url is " + url);
+  // hasUrl = archive.isUrlInList(url);
+  // if(hasUrl), get
+  //   else, post?
 
 
 
   if (req.method === 'GET') {
-    console.log(archive.paths);
+    //console.log(archive.paths);
     fs.readFile(archive.paths.index, 'utf8', function (err, html) {
-      console.log('html = ', html, 'err =',err);
-      console.log('it might be working');
+      //console.log('html = ', html, 'err =',err);
+      //console.log('it might be working');
 
       utils.serveResponse(res, html, 200);
     });

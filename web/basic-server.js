@@ -3,7 +3,7 @@ var http = require("http");
 var urlParser = require('url');
 var handler = require("./request-handler");
 var utils = require('./http-helpers');
-var archive = require("./archive-helpers");
+var archive = require("../helpers/archive-helpers");
 
 
 var port = 8080;

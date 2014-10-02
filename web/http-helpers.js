@@ -17,7 +17,7 @@ exports.serveAssets = function(res, asset, callback) {
 
 exports.serveResponse = function(res, data, statusCode) {
   statusCode = statusCode || 200;
-  console.log('the status code is', statusCode, 'and data is', data);
+  //console.log('the status code is', statusCode, 'and data is', data);
   res.writeHead(statusCode, headers);
   res.write(data);
   res.end(data);
