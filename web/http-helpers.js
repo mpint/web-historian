@@ -17,10 +17,12 @@ exports.serveAssets = function(res, asset, callback) {
 
 exports.serveResponse = function(res, data, statusCode) {
   statusCode = statusCode || 200;
+  console.log(archive.paths['siteAssets']+data);
+  console.log(statusCode);
   //console.log('the status code is', statusCode, 'and data is', data);
-  res.writeHead(statusCode, headers);
-  res.write(data);
-  res.end(data);
+  res.writeHead(statusCode, headers );
+  // res.write(data);
+  res.end('<input');
 }
 
 
